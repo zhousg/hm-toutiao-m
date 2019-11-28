@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <van-button type="primary">主要按钮</van-button>
+    <!-- 一级路由对应组件显示容器 -->
+    <router-view></router-view>
   </div>
 </template>
 
