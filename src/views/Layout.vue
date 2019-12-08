@@ -1,9 +1,9 @@
 <template>
   <div class='container'>
     <!-- 导航栏 -->
-    <van-nav-bar fixed title="黑马头条" right-text="搜索" @click-right="$router.push('/search')"/>
+    <van-nav-bar v-if="showNavbar" fixed title="黑马头条" right-text="搜索" @click-right="$router.push('/search')"/>
     <!-- 内容容器 -->
-    <div class="my-wrapper" >
+    <div class="my-wrapper" :class="{noTop:!showNavbar}">
       <!-- 二级路由对应组件显示的容器 -->
       <router-view></router-view>
     </div>
@@ -18,7 +18,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    showNavbar () {
+      return this.$route.path !== '/user'
+    }
+  }
+}
 </script>
 
 <style scoped lang='less'>

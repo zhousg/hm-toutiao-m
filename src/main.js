@@ -7,12 +7,16 @@ import store from './store'
 import 'amfe-flexible'
 
 // 使用vant  是一个插件，包含了很多组件，称为：组件库
-import Vant from 'vant'
-import 'vant/lib/index.css'
+import Vant, { Lazyload } from 'vant'
+import 'vant/lib/index.less'
 
 import '@/styles/index.less'
 
+import plugin from '@/utils/plugin'
+Vue.use(plugin)
+
 Vue.use(Vant)
+Vue.use(Lazyload)
 
 Vue.config.productionTip = false
 
