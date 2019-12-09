@@ -63,7 +63,7 @@ export default {
     this.getUserInfo()
   },
   methods: {
-    ...mapMutations(['delUser']),
+    ...mapMutations(['delUser', 'setPhoto']),
     // 退出
     logout () {
       // 1. 温馨提示  确认按钮 取消按钮
@@ -80,6 +80,8 @@ export default {
     async getUserInfo () {
       const data = await getUserInfo()
       this.user = data
+      // 更新vuex用户头像
+      this.setPhoto(data.photo)
     }
   }
 }
